@@ -26,7 +26,7 @@ const OktoberPage = () => {
         initial={{ opacity: 0, x: -16 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.45, delay: 0.5 }}
-        className="fixed bottom-6 left-4 z-40"
+        className="fixed top-20 left-4 md:top-auto md:bottom-6 md:left-6 z-40"
       >
         <Link
           to="/"

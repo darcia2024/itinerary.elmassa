@@ -40,42 +40,47 @@ const HeroSection = ({
           <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/20 to-black/75" />
 
           {/* ── Traveme Giant Brand Typography (Top Left) ── */}
-          <div className="absolute top-6 left-6 sm:left-10 z-10">
-            <h1 className="font-sans text-6xl sm:text-8xl md:text-9xl font-black tracking-tighter text-white leading-none lowercase drop-shadow-md select-none">
+          <div className="absolute top-5 left-5 sm:top-8 sm:left-10 z-10">
+            <h1 className="font-sans text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter text-white leading-none lowercase drop-shadow-md select-none">
               elmassa
             </h1>
           </div>
 
-          {/* Bottom Left Floating Tag Pills */}
-          <div className="absolute bottom-8 left-6 sm:left-10 flex flex-wrap gap-2 z-10">
-            {["travel", "sunnah", "eksklusif"].map((pill) => (
-              <span
-                key={pill}
-                className="bg-black/50 backdrop-blur-md text-white/95 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/30 shadow-sm"
-              >
-                {pill}
-              </span>
-            ))}
-          </div>
-
-          {/* Bottom Right Floating Content Block (Traveme Style) */}
-          <div className="absolute bottom-8 right-6 sm:right-10 max-w-sm sm:max-w-md text-right z-10 space-y-3">
-            <h2 className="font-sans text-3xl sm:text-5xl font-black text-white leading-tight drop-shadow-md">
-              Ibadah Khusyuk, <br /> Perjalanan Tenang.
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-200 font-medium leading-relaxed max-w-xs ml-auto">
-              Nikmati kemudahan umrah 14 hari bersama El Massa Tour &amp; Travel dengan bimbingan sunnah &amp; fasilitas bintang 5.
-            </p>
-            <div className="pt-1">
-              <button
-                type="button"
-                onClick={scrollToItinerary}
-                className="inline-flex items-center gap-2.5 bg-black hover:bg-stone-900 text-white text-xs font-bold px-6 py-3.5 rounded-full transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer border border-white/20"
-              >
-                <span>Lihat Detail Itinerary</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+          {/* Bottom Floating Content Container (Responsive Column on Mobile, Row on Desktop) */}
+          <div className="absolute bottom-5 sm:bottom-8 left-5 sm:left-10 right-5 sm:right-10 z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+            
+            {/* Tag Pills (Left side on desktop, stacked on mobile) */}
+            <div className="hidden sm:flex flex-wrap gap-2">
+              {["travel", "sunnah", "eksklusif"].map((pill) => (
+                <span
+                  key={pill}
+                  className="bg-black/50 backdrop-blur-md text-white/95 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/30 shadow-sm"
+                >
+                  {pill}
+                </span>
+              ))}
             </div>
+
+            {/* Content & Action Button (Right side) */}
+            <div className="max-w-full sm:max-w-md text-left sm:text-right space-y-2.5 sm:space-y-3 w-full sm:w-auto">
+              <h2 className="font-sans text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight drop-shadow-md">
+                Ibadah Khusyuk, <br className="hidden sm:inline" /> Perjalanan Tenang.
+              </h2>
+              <p className="text-xs sm:text-sm text-stone-200 font-medium leading-relaxed max-w-xs sm:ml-auto">
+                Nikmati kemudahan umrah 14 hari bersama El Massa Tour &amp; Travel dengan bimbingan sunnah &amp; fasilitas bintang 5.
+              </p>
+              <div className="pt-1">
+                <button
+                  type="button"
+                  onClick={scrollToItinerary}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-black hover:bg-stone-900 text-white text-xs font-bold px-6 py-3.5 rounded-full transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer border border-white/20"
+                >
+                  <span>Lihat Detail Itinerary</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
           </div>
 
           {/* Centered Scroll Indicator */}
