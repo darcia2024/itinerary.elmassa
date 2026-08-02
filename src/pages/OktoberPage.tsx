@@ -19,7 +19,7 @@ import cityTaifImage from "@/assets/city-taif.jpg";
 
 const OktoberPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#F6F3EC]">
       <Navbar />
 
       <motion.div

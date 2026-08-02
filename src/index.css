@@ -14,15 +14,15 @@
 
 @layer base {
   :root {
-    /* Backgrounds – Pink & Warm Brown */
-    --background: 348 45% 94%;
-    --foreground: 25 50% 16%;
+    /* Backgrounds – Light Warm Sand (#F6F3EC) & Dark Charcoal */
+    --background: 43 27% 94%;
+    --foreground: 0 0% 7%;
 
-    --card: 348 40% 97%;
-    --card-foreground: 25 50% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
 
-    --popover: 348 40% 97%;
-    --popover-foreground: 25 50% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
 
     /* Primary – Rich warm chocolate brown */
     --primary: 25 45% 26%;
