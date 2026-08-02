@@ -9,6 +9,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import SectionDivider from "@/components/SectionDivider";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
@@ -18,7 +19,7 @@ import cityTaifImage from "@/assets/city-taif.jpg";
 
 const JuliPage = () => {
   return (
-    <div className="min-h-screen bg-[#F6F3EC]">
+    <div className="min-h-screen bg-[#F6F3EC] pb-16 md:pb-0">
       <Navbar />
 
       <motion.div
@@ -43,7 +44,7 @@ const JuliPage = () => {
           bgImage={madinahImage}
         />
         <section id="jadwal">
-          <ItinerarySectionOktober />
+          <ItinerarySection />
         </section>
         <FeaturesSection />
         <section id="lokasi">
@@ -59,6 +60,7 @@ const JuliPage = () => {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <MobileBottomNav />
     </div>
   );
 };

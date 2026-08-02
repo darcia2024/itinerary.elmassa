@@ -8,17 +8,15 @@ import TipsSection from "@/components/TipsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import SectionDivider from "@/components/SectionDivider";
+import MobileBottomNav from "@/components/MobileBottomNav";
 import { Link } from "react-router-dom";
 import { ChevronLeft } from "lucide-react";
 import { motion } from "framer-motion";
-import heroImage from "@/assets/hero-makkah.jpg";
 import madinahImage from "@/assets/madinah-mosque.jpg";
-import cityTaifImage from "@/assets/city-taif.jpg";
 
 const NovemberPage = () => {
   return (
-    <div className="min-h-screen bg-[#F6F3EC]">
+    <div className="min-h-screen bg-[#F6F3EC] pb-16 md:pb-0">
       <Navbar />
 
       <motion.div
@@ -59,6 +57,7 @@ const NovemberPage = () => {
       </main>
       <Footer />
       <FloatingWhatsApp />
+      <MobileBottomNav />
     </div>
   );
 };

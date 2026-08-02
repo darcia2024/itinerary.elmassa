@@ -109,26 +109,28 @@ const ItineraryModal = ({
               />
             </DialogPrimitive.Overlay>
 
-            {/* Centering container */}
+            {/* Centering / Bottom Sheet container */}
             <DialogPrimitive.Content
               forceMount
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 focus:outline-none"
+              className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 focus:outline-none"
               aria-describedby={undefined}
               onClick={onClose}
             >
               <motion.div
                 key="modal"
-                initial={{ opacity: 0, y: 36, scale: 0.97 }}
+                initial={{ opacity: 0, y: 100, scale: 0.97 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.97 }}
+                exit={{ opacity: 0, y: 100, scale: 0.97 }}
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="w-full max-w-md rounded-2xl overflow-hidden shadow-2xl flex flex-col bg-white"
-                style={{ maxHeight: "88vh" }}
+                className="w-full max-w-md rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col bg-white"
+                style={{ maxHeight: "90vh" }}
                 onClick={(e) => e.stopPropagation()}
               >
 
                 {/* ── Hero Image ── */}
                 <div className="relative h-48 md:h-56 w-full flex-shrink-0 overflow-hidden">
+                  {/* Native Drag Handle for Mobile */}
+                  <div className="w-12 h-1.5 bg-white/50 backdrop-blur-md rounded-full mx-auto mt-2.5 relative z-20 sm:hidden" />
                   {image ? (
                     <img
                       src={image}
