@@ -31,8 +31,8 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { href: "#", label: "Home", id: "home" },
-    { href: "#jadwal", label: "Itinerary", id: "jadwal" },
+    { href: "#", label: "Beranda", id: "home" },
+    { href: "#jadwal", label: "Jadwal", id: "jadwal" },
     { href: "#tips", label: "Tips", id: "tips" },
   ];
 

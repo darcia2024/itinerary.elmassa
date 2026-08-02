@@ -55,7 +55,7 @@ const FeaturesSection = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="font-sans text-3xl sm:text-5xl font-black text-stone-900 tracking-tight">
-              Recommended Destination
+              Rekomendasi Destinasi Utama
             </h2>
             <p className="text-xs sm:text-sm text-stone-600 font-medium mt-1">
               Rangkaian destinasi utama dan tempat bersejarah selama 14 hari di Tanah Suci.
@@ -144,7 +144,7 @@ const FeaturesSection = () => {
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
               <h2 className="font-sans text-3xl sm:text-5xl font-black text-stone-900 tracking-tight leading-tight">
-                Elevate Your Spiritual Journey
+                Tingkatkan Kualitas Ibadah Anda
               </h2>
               <p className="text-xs sm:text-sm text-stone-600 font-medium leading-relaxed">
                 El Massa Tour &amp; Travel menghadirkan standar pelayanan ibadah terbaik agar setiap detik perjalanan Anda terasa berkesan dan tenang.

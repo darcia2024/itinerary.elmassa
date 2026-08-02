@@ -51,7 +51,7 @@ const HeroSection = ({
             
             {/* Tag Pills (Left side on desktop, stacked on mobile) */}
             <div className="hidden sm:flex flex-wrap gap-2">
-              {["travel", "sunnah", "eksklusif"].map((pill) => (
+              {["perjalanan", "sunnah", "eksklusif"].map((pill) => (
                 <span
                   key={pill}
                   className="bg-black/50 backdrop-blur-md text-white/95 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/30 shadow-sm"
@@ -85,7 +85,7 @@ const HeroSection = ({
 
           {/* Centered Scroll Indicator */}
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-2 text-[11px] text-white/70 font-semibold tracking-wider uppercase z-10">
-            <span>(0) Scroll Down</span>
+            <span>(0) Gulir Ke Bawah</span>
           </div>
 
         </div>

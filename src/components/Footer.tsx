@@ -47,10 +47,10 @@ const Footer = () => {
         {/* ── Giant Editorial Footer Text ── */}
         <div className="pt-8 text-center">
           <h2 className="font-display text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter text-white/10 select-none leading-none">
-            EL MASSA ITINERARIES
+            BROSUR ITINERARY EL MASSA
           </h2>
           <p className="mt-4 text-[11px] font-medium text-rose-200/50 uppercase tracking-widest">
-            © 2026 EL MASSA TOUR &amp; TRAVEL · EDITORIAL DIGITAL ITINERARY BROCHURE
+            © 2026 EL MASSA TOUR &amp; TRAVEL · BROSUR ITINERARY DIGITAL RESMI
           </p>
         </div>
       </div>
