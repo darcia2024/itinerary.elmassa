@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Umrah Itinerary Design System – Pink × Brown × Gold */
+
+@layer base {
+  :root {
+    /* Backgrounds – Pink & Warm Brown */
+    --background: 348 45% 94%;
+    --foreground: 25 50% 16%;
+
+    --card: 348 40% 97%;
+    --card-foreground: 25 50% 16%;
+
+    --popover: 348 40% 97%;
+    --popover-foreground: 25 50% 16%;
+
+    /* Primary – Rich warm chocolate brown */
+    --primary: 25 45% 26%;
+    --primary-foreground: 348 45% 97%;
+
+    /* Secondary – Deep rose brown */
+    --secondary: 345 35% 32%;
+    --secondary-foreground: 348 45% 96%;
+
+    --muted: 348 30% 88%;
+    --muted-foreground: 25 30% 40%;
+
+    /* Accent – Romantic Rose Pink */
+    --accent: 348 78% 62%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 350 30% 98%;
+
+    --border: 345 25% 85%;
+    --input: 345 25% 85%;
+    --ring: 348 78% 62%;
+
+    --radius: 0.75rem;
+
+    /* Brand Palette – Pink × Chocolate Brown × Rose Gold */
+    --rose: 348 55% 68%;
+    --rose-light: 348 50% 84%;
+    --rose-dark: 348 65% 52%;
+    --brown: 25 48% 28%;
+    --brown-light: 25 38% 44%;
+    --brown-dark: 25 55% 18%;
+    --gold: 38 78% 52%;
+    --gold-light: 38 75% 66%;
+    --gold-dark: 35 70% 40%;
+    --cream: 348 50% 95%;
+    --cream-dark: 25 35% 84%;
+    --pink: 348 78% 65%;
+    --pink-light: 348 85% 85%;
+    --pink-dark: 345 70% 50%;
+    --pink-foreground: 0 0% 100%;
+    --whatsapp: 142 70% 45%;
+    --whatsapp-hover: 142 70% 40%;
+
+    /* Gradients – Pink & Brown */
+    --gradient-hero: linear-gradient(135deg, hsl(25 55% 18%) 0%, hsl(345 42% 28%) 50%, hsl(348 60% 48%) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(348 78% 65%) 0%, hsl(345 65% 48%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(348 45% 98%) 0%, hsl(348 30% 93%) 100%);
+
+    --sidebar-background: 348 40% 96%;
+    --sidebar-foreground: 25 50% 18%;
+    --sidebar-primary: 25 45% 26%;
+    --sidebar-primary-foreground: 348 45% 97%;
+    --sidebar-accent: 348 35% 90%;
+    --sidebar-accent-foreground: 25 50% 16%;
+    --sidebar-border: 345 25% 85%;
+    --sidebar-ring: 348 78% 62%;
+  }
+
+  .dark {
+    --background: 25 30% 10%;
+    --foreground: 350 25% 92%;
+
+    --card: 25 25% 14%;
+    --card-foreground: 350 25% 92%;
+
+    --popover: 25 25% 14%;
+    --popover-foreground: 350 25% 92%;
+
+    --primary: 43 75% 55%;
+    --primary-foreground: 25 30% 10%;
+
+    --secondary: 25 30% 22%;
+    --secondary-foreground: 350 25% 88%;
+
+    --muted: 25 25% 20%;
+    --muted-foreground: 350 20% 60%;
+
+    --accent: 43 75% 50%;
+    --accent-foreground: 25 30% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 350 25% 92%;
+
+    --border: 25 25% 22%;
+    --input: 25 25% 22%;
+    --ring: 43 75% 55%;
+
+    --sidebar-background: 25 25% 12%;
+    --sidebar-foreground: 350 25% 88%;
+    --sidebar-primary: 43 75% 55%;
+    --sidebar-primary-foreground: 25 30% 10%;
+    --sidebar-accent: 25 25% 18%;
+    --sidebar-accent-foreground: 350 25% 88%;
+    --sidebar-border: 25 25% 20%;
+    --sidebar-ring: 43 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background: linear-gradient(160deg, hsl(340 55% 90%) 0%, hsl(25 40% 85%) 100%);
+    min-height: 100vh;
+  }
+
+  h1, h2 {
+    font-family: 'Calisga', 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+
+  h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  .font-display {
+    font-family: 'Calisga', 'Poppins', sans-serif;
+    font-weight: 800;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 82% 55%) 0%, hsl(38 70% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-pattern-islamic {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.08'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .bg-pattern-dots {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+
+  @keyframes shimmer-slide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  @keyframes gold-glow {
+    0%, 100% { box-shadow: 0 0 10px hsla(43, 82%, 50%, 0.3); }
+    50% { box-shadow: 0 0 28px hsla(43, 82%, 50%, 0.65), 0 0 50px hsla(43, 82%, 50%, 0.2); }
+  }
+
+  @keyframes lightSweep {
+    0%   { left: -30%; opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { left: 130%; opacity: 0; }
+  }
+
+  .animate-pulse-ring {
+    animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  }
+
+  .animate-gold-glow {
+    animation: gold-glow 3s ease-in-out infinite;
+  }
+
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer-effect::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
+    animation: shimmer-slide 2.5s ease-in-out infinite;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
