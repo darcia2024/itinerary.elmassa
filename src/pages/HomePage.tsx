@@ -329,7 +329,7 @@ const HomePage = () => {
                       {/* Destinations List */}
                       <div className="flex items-center gap-1 pt-0.5 flex-wrap">
                         <span className="text-[9px] font-bold tracking-wider uppercase text-rose-300/60 mr-1">Rute:</span>
-                        {item.destinations.map((dest) => (
+                        {(item.destinations || ["Makkah", "Madinah"]).map((dest) => (
                           <span
                             key={dest}
                             className="inline-flex items-center gap-1 text-[9px] font-bold bg-pink-950/60 border border-pink-500/20 text-pink-200 px-2 py-0.5 rounded-md backdrop-blur-sm"
