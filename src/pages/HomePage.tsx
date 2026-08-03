@@ -139,16 +139,16 @@ const HomePage = () => {
     fetch("https://system-elmassa.vercel.app/api/packages")
       .then((res) => res.json())
       .then((res) => {
-        if (res.ok && Array.isArray(res.data) && res.data.length > 0) {
+        if (res && res.ok && Array.isArray(res.data) && res.data.length > 0) {
           const mapped: CatalogPackage[] = res.data.map((pkg: any) => ({
-            id: pkg.id,
+            id: String(pkg.id || `pkg-${Math.random()}`),
             slug: `/paket/${pkg.id}`,
-            month: pkg.category || "Umrah",
-            year: pkg.departureDate ? pkg.departureDate.slice(0, 4) : "2026",
-            dates: pkg.departuresDate || pkg.departureDate || "Jadwal Terbit System",
-            days: pkg.duration || "12 Hari",
+            month: String(pkg.category || "Umrah"),
+            year: pkg.departureDate ? String(pkg.departureDate).slice(0, 4) : "2026",
+            dates: String(pkg.departuresDate || pkg.departureDate || "Jadwal Terbit System"),
+            days: String(pkg.duration || "12 Hari"),
             badge: "🟢 LIVE SISTEM EL MASSA",
-            highlight: `${pkg.name} — ${pkg.price}`,
+            highlight: `${pkg.name || 'Paket Umrah'} — ${pkg.price || ''}`,
             image: heroImage,
             destinations: ["Makkah", "Madinah", "Thaif"],
             isOpen: true,
