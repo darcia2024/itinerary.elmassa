@@ -15,18 +15,15 @@ import PageTransition from "./components/PageTransition";
 const queryClient = new QueryClient();
 
 const AnimatedRoutes = () => {
-  const location = useLocation();
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />
-        <Route path="/juli-2026" element={<PageTransition><JuliPage /></PageTransition>} />
-        <Route path="/oktober-2026" element={<PageTransition><OktoberPage /></PageTransition>} />
-        <Route path="/november-2026" element={<PageTransition><NovemberPage /></PageTransition>} />
-        <Route path="/paket/:id" element={<PageTransition><DynamicPackagePage /></PageTransition>} />
-        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
-      </Routes>
-    </AnimatePresence>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/juli-2026" element={<JuliPage />} />
+      <Route path="/oktober-2026" element={<OktoberPage />} />
+      <Route path="/november-2026" element={<NovemberPage />} />
+      <Route path="/paket/:id" element={<DynamicPackagePage />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
