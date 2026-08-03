@@ -36,7 +36,7 @@ const NovemberPage = () => {
 
       <main className="bg-[#F6F3EC]">
         <HeroSection
-          dateText="08 Nov – 18 Nov 2026"
+          dateText="03 Nov – 14 Nov 2026"
           monthLabel="NOVEMBER 2026"
           bgImage={madinahImage}
         />
