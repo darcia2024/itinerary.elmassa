@@ -133,8 +133,35 @@ const CATALOG_ITEMS: CatalogPackage[] = [
 
 const HomePage = () => {
   const [filter, setFilter] = useState<"all" | "open" | "upcoming">("all");
+  const [livePackages, setLivePackages] = useState<CatalogPackage[]>([]);
 
-  const filteredItems = CATALOG_ITEMS.filter((item) => {
+  useEffect(() => {
+    fetch("https://system-elmassa.vercel.app/api/packages")
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.ok && Array.isArray(res.data) && res.data.length > 0) {
+          const mapped: CatalogPackage[] = res.data.map((pkg: any) => ({
+            id: pkg.id,
+            slug: `/paket/${pkg.id}`,
+            month: pkg.category || "Umrah",
+            year: pkg.departureDate ? pkg.departureDate.slice(0, 4) : "2026",
+            dates: pkg.departuresDate || pkg.departureDate || "Jadwal Terbit System",
+            days: pkg.duration || "12 Hari",
+            badge: "🟢 LIVE SISTEM EL MASSA",
+            highlight: `${pkg.name} — ${pkg.price}`,
+            image: heroImage,
+            destinations: ["Makkah", "Madinah", "Thaif"],
+            isOpen: true,
+          }));
+          setLivePackages(mapped);
+        }
+      })
+      .catch((e) => console.error("Error fetching live packages:", e));
+  }, []);
+
+  const allItems = [...livePackages, ...CATALOG_ITEMS];
+
+  const filteredItems = allItems.filter((item) => {
     if (filter === "open") return item.isOpen;
     if (filter === "upcoming") return !item.isOpen;
     return true;

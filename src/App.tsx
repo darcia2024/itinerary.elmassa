@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage";
 import JuliPage from "./pages/JuliPage";
 import OktoberPage from "./pages/OktoberPage";
 import NovemberPage from "./pages/NovemberPage";
+import DynamicPackagePage from "./pages/DynamicPackagePage";
 import NotFound from "./pages/NotFound";
 import PageTransition from "./components/PageTransition";
 
@@ -22,6 +23,7 @@ const AnimatedRoutes = () => {
         <Route path="/juli-2026" element={<PageTransition><JuliPage /></PageTransition>} />
         <Route path="/oktober-2026" element={<PageTransition><OktoberPage /></PageTransition>} />
         <Route path="/november-2026" element={<PageTransition><NovemberPage /></PageTransition>} />
+        <Route path="/paket/:id" element={<PageTransition><DynamicPackagePage /></PageTransition>} />
         <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
