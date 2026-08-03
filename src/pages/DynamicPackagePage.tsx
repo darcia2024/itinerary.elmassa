@@ -88,25 +88,21 @@ const DynamicPackagePage = () => {
   const dateText = packageData.departuresDate || packageData.departureDate || "Jadwal Terbit Terkini";
 
   return (
-    <div className="min-h-screen bg-[#F6F3EC] pb-16 md:pb-0">
+    <div className="min-h-screen bg-[#F6F3EC] pb-16 md:pb-0 font-sans">
       <Navbar />
 
-      <motion.div
-        initial={{ opacity: 0, x: -16 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.45, delay: 0.5 }}
-        className="fixed top-20 left-4 md:top-auto md:bottom-6 md:left-6 z-40"
-      >
-        <Link
-          to="/"
-          className="flex items-center gap-1.5 bg-white/90 backdrop-blur-md border border-stone-200 shadow-lg rounded-full px-3.5 py-2 text-stone-700 text-xs font-semibold hover:bg-white transition-all"
-        >
-          <ChevronLeft className="w-3.5 h-3.5" />
-          Semua Jadwal
-        </Link>
-      </motion.div>
-
       <main className="bg-[#F6F3EC]">
+        {/* Back Button Container */}
+        <div className="container mx-auto px-4 pt-4">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 bg-white border border-stone-200/80 shadow-sm hover:shadow-md rounded-xl px-4 py-2 text-stone-700 text-xs font-bold hover:bg-stone-50 transition-all cursor-pointer"
+          >
+            <ChevronLeft className="w-4 h-4 text-rose-600" />
+            <span>Kembali ke Semua Jadwal</span>
+          </Link>
+        </div>
+
         {/* Dynamic Hero Section */}
         <HeroSection
           dateText={dateText}
@@ -115,82 +111,98 @@ const DynamicPackagePage = () => {
         />
 
         {/* Package Highlights Banner */}
-        <section className="bg-white border-y border-stone-200 py-6">
+        <section className="bg-white border-y border-stone-200/70 py-6">
           <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="p-3 rounded-xl bg-amber-50/60 border border-amber-200/50">
-              <span className="text-xs text-stone-500 font-semibold block">Harga / Pax</span>
-              <span className="text-base font-extrabold text-amber-900">{packageData.price}</span>
+            <div className="p-3.5 rounded-2xl bg-amber-50/70 border border-amber-200/60 shadow-2xs">
+              <span className="text-[10px] text-amber-700 font-extrabold uppercase tracking-wider block">Target Rombongan</span>
+              <span className="text-sm md:text-base font-black text-amber-900 mt-0.5 block">{packageData.targetPax || 39} Jamaah</span>
             </div>
-            <div className="p-3 rounded-xl bg-emerald-50/60 border border-emerald-200/50">
-              <span className="text-xs text-stone-500 font-semibold block">Setoran Minimal DP</span>
-              <span className="text-base font-extrabold text-emerald-900">{packageData.dpMinimum || "Rp 5.000.000"}</span>
+            <div className="p-3.5 rounded-2xl bg-rose-50/70 border border-rose-200/60 shadow-2xs">
+              <span className="text-[10px] text-rose-700 font-extrabold uppercase tracking-wider block">Hotel Makkah</span>
+              <span className="text-sm md:text-base font-black text-rose-950 mt-0.5 block truncate">{packageData.makkahHotel || "Grand Al Massa"}</span>
             </div>
-            <div className="p-3 rounded-xl bg-sky-50/60 border border-sky-200/50">
-              <span className="text-xs text-stone-500 font-semibold block">Maskapai & Rute</span>
-              <span className="text-xs font-bold text-sky-950 truncate block mt-1">{packageData.airline || "Saudia / Garuda"}</span>
+            <div className="p-3.5 rounded-2xl bg-emerald-50/70 border border-emerald-200/60 shadow-2xs">
+              <span className="text-[10px] text-emerald-700 font-extrabold uppercase tracking-wider block">Hotel Madinah</span>
+              <span className="text-sm md:text-base font-black text-emerald-950 mt-0.5 block truncate">{packageData.madinahHotel || "Daar El Naeem"}</span>
             </div>
-            <div className="p-3 rounded-xl bg-rose-50/60 border border-rose-200/50">
-              <span className="text-xs text-stone-500 font-semibold block">Hotel Makkah & Madinah</span>
-              <span className="text-xs font-bold text-rose-950 truncate block mt-1">
-                {packageData.makkahHotel} & {packageData.madinahHotel}
-              </span>
+            <div className="p-3.5 rounded-2xl bg-sky-50/70 border border-sky-200/60 shadow-2xs">
+              <span className="text-[10px] text-sky-700 font-extrabold uppercase tracking-wider block">Penerbangan</span>
+              <span className="text-sm md:text-base font-black text-sky-950 mt-0.5 block truncate">{packageData.airline || "Saudia / Garuda"}</span>
             </div>
           </div>
         </section>
 
         {/* Dynamic Itinerary Timeline */}
-        <section id="jadwal" className="py-10 md:py-16 relative overflow-hidden" style={{ background: "linear-gradient(135deg, hsl(349 70% 58%) 0%, hsl(340 60% 48%) 100%)" }}>
-          <div className="container mx-auto px-3 md:px-4 relative z-10">
-            <div className="text-center mb-8 md:mb-12">
-              <div className="inline-flex items-center gap-2 mb-4 bg-white/15 backdrop-blur-sm border border-white/25 rounded-full px-4 py-1.5 text-white text-xs font-medium tracking-wide shadow-sm">
-                <Calendar className="w-3.5 h-3.5 text-white" />
-                {packageData.duration} Perjalanan Penuh Makna
+        <section id="jadwal" className="py-12 md:py-20 relative overflow-hidden" style={{ background: "linear-gradient(135deg, hsl(349 75% 52%) 0%, hsl(340 70% 42%) 100%)" }}>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="text-center mb-10 md:mb-14 max-w-2xl mx-auto">
+              <div className="inline-flex items-center gap-2 mb-3 bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-1.5 text-amber-200 text-xs font-bold shadow-md">
+                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                <span>{packageData.duration} Perjalanan Penuh Makna &amp; Berkah</span>
               </div>
 
-              <h2 className="font-serif text-3xl md:text-5xl font-bold text-white mb-3 drop-shadow-lg leading-tight">
+              <h2 className="font-serif text-3xl md:text-5xl font-black text-white mb-3 drop-shadow-md leading-tight">
                 {packageData.name}
               </h2>
 
-              <p className="text-white/85 text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-                Rangkaian kegiatan harian resmi El Massa — {dateText}.
+              <p className="text-white/90 text-xs md:text-sm font-medium leading-relaxed">
+                Rangkaian kegiatan harian resmi El Massa Tour &amp; Travel — <span className="font-bold text-amber-200">{dateText}</span>.
               </p>
             </div>
 
-            {/* Daily Itinerary Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Ultra-Premium Daily Itinerary Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
               {packageData.itinerary && packageData.itinerary.length > 0 ? (
                 packageData.itinerary.map((item, idx) => (
-                  <div key={idx} className="bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-lg border border-white/40 space-y-3">
-                    <div className="flex items-center justify-between border-b border-stone-100 pb-2.5">
-                      <div className="flex items-center gap-2">
-                        <span className="bg-rose-600 text-white font-extrabold text-xs px-2.5 py-1 rounded-full">
-                          Hari ke-{item.day}
-                        </span>
-                        <h3 className="text-sm font-bold text-stone-900">{item.title}</h3>
-                      </div>
-                      {item.location && (
-                        <span className="text-[11px] font-semibold text-stone-500 flex items-center gap-1">
-                          <MapPin className="w-3 h-3 text-rose-500" /> {item.location}
-                        </span>
-                      )}
-                    </div>
+                  <div
+                    key={idx}
+                    className="group relative bg-white/95 backdrop-blur-xl rounded-2xl p-5 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_16px_40px_rgba(225,29,72,0.14)] border border-rose-100 hover:border-rose-300 transition-all duration-300 overflow-hidden flex flex-col justify-between"
+                  >
+                    {/* Top Decorative Accent Line */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 via-rose-500 to-pink-500" />
 
-                    <div className="space-y-2">
-                      {item.activities && item.activities.map((act, actIdx) => (
-                        <div key={actIdx} className="flex items-start gap-2.5 text-xs text-stone-700">
-                          {act.time && (
-                            <span className="bg-rose-50 text-rose-700 font-bold text-[10px] px-2 py-0.5 rounded-md shrink-0 border border-rose-200/60">
-                              {act.time}
-                            </span>
-                          )}
-                          <p className="leading-relaxed font-medium">{act.description}</p>
+                    <div className="space-y-4">
+                      {/* Header Badge & Title */}
+                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-100 pb-3">
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex items-center gap-1.5 bg-gradient-to-r from-rose-600 to-pink-600 text-white font-black text-xs px-3 py-1 rounded-xl shadow-xs border border-pink-300/30 shrink-0">
+                            <Sparkles className="w-3 h-3 text-amber-300" />
+                            Hari ke-{item.day}
+                          </span>
+                          <h3 className="text-sm md:text-base font-extrabold text-stone-900 group-hover:text-rose-600 transition-colors leading-snug">
+                            {item.title}
+                          </h3>
                         </div>
-                      ))}
+
+                        {item.location && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-rose-700 bg-rose-50 border border-rose-200/70 px-2.5 py-1 rounded-lg shrink-0">
+                            <MapPin className="w-3 h-3 text-rose-500" />
+                            {item.location}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Connected Activity Timeline */}
+                      <div className="relative pl-3 space-y-3 before:absolute before:left-1 before:top-2 before:bottom-2 before:w-[2px] before:bg-rose-200/70">
+                        {item.activities && item.activities.map((act, actIdx) => (
+                          <div key={actIdx} className="flex items-start gap-2.5 text-xs text-stone-800 relative">
+                            {/* Dot on line */}
+                            <span className="absolute -left-[13px] top-1.5 w-2 h-2 rounded-full bg-rose-500 border border-white shadow-2xs" />
+                            
+                            {act.time && (
+                              <span className="inline-flex items-center justify-center font-mono text-[10px] font-extrabold text-white bg-gradient-to-r from-stone-900 to-stone-800 border border-stone-700 px-2 py-0.5 rounded-md shrink-0 shadow-2xs min-w-[70px]">
+                                {act.time}
+                              </span>
+                            )}
+                            <p className="leading-relaxed font-semibold text-stone-700 flex-1">{act.description}</p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))
               ) : (
-                <div className="col-span-2 text-center text-white/90 py-8 text-sm">
+                <div className="col-span-2 text-center text-white/90 py-10 text-sm font-medium bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
                   Rincian kegiatan harian tersedia saat konfirmasi pendaftaran.
                 </div>
               )}

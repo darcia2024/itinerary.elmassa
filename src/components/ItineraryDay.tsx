@@ -69,58 +69,62 @@ const ItineraryDay = ({
         className="h-full cursor-pointer"
         onClick={() => setIsModalOpen(true)}
       >
-        <div className="group h-full rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-350 border border-black/[0.05] flex flex-col">
+        <div className="group h-full rounded-2xl overflow-hidden bg-white/95 backdrop-blur-xl shadow-[0_6px_25px_rgba(0,0,0,0.06)] hover:shadow-[0_14px_35px_rgba(225,29,72,0.12)] transition-all duration-300 border border-stone-200/80 hover:border-rose-300 flex flex-col">
 
           {/* Image or fallback */}
-          <div className="relative overflow-hidden flex-shrink-0" style={{ height: "clamp(100px, 22vw, 150px)" }}>
+          <div className="relative overflow-hidden flex-shrink-0" style={{ height: "clamp(110px, 24vw, 160px)" }}>
             {image ? (
               <img
                 src={image}
                 alt={title}
-                className="w-full h-full object-cover group-hover:scale-107 transition-transform duration-600 ease-out"
+                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-600 ease-out"
               />
             ) : (
-              <div className="w-full h-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                <Icon className="w-8 h-8 text-white/30" />
+              <div className="w-full h-full bg-gradient-to-br from-rose-700 via-pink-700 to-amber-700 flex items-center justify-center">
+                <Icon className="w-8 h-8 text-white/40" />
               </div>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-black/20 to-transparent" />
 
             {/* Day badge */}
-            <div className="absolute top-2 left-2">
-              <span className="inline-flex items-center gap-1 bg-white/95 backdrop-blur-sm text-primary rounded-full px-2 py-0.5 text-[9px] md:text-[10px] font-bold shadow-sm">
+            <div className="absolute top-2.5 left-2.5">
+              <span className="inline-flex items-center gap-1 bg-gradient-to-r from-rose-600 to-pink-600 text-white border border-pink-300/40 rounded-xl px-2.5 py-1 text-[10px] md:text-[11px] font-black shadow-md tracking-wide">
                 Hari {day}{date ? ` · ${date}` : ""}
               </span>
             </div>
           </div>
 
           {/* Content */}
-          <div className="flex flex-col flex-1 p-2.5 md:p-3.5">
+          <div className="flex flex-col flex-1 p-3.5 md:p-4 space-y-2">
             {/* Location */}
-            <div className="flex items-center gap-1 text-muted-foreground text-[9px] md:text-[10px] mb-1.5">
-              <MapPin className="w-2.5 h-2.5 flex-shrink-0" />
+            <div className="flex items-center gap-1 text-[10px] md:text-[11px] font-extrabold text-rose-700 bg-rose-50 border border-rose-200/60 px-2 py-0.5 rounded-lg self-start">
+              <MapPin className="w-3 h-3 flex-shrink-0 text-rose-500" />
               <span className="truncate leading-tight">{location}</span>
             </div>
 
             {/* Title */}
-            <h3 className="font-sans font-semibold text-[11px] md:text-sm text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors duration-200 leading-snug flex-1">
+            <h3 className="font-sans font-extrabold text-xs md:text-sm text-stone-900 line-clamp-2 group-hover:text-rose-600 transition-colors duration-200 leading-snug flex-1">
               {title}
             </h3>
 
             {/* Activities preview — desktop only */}
-            <ul className="hidden md:flex flex-col gap-1 mb-2.5">
+            <ul className="hidden md:flex flex-col gap-1.5 pt-1 border-t border-stone-100">
               {activities.slice(0, 2).map((activity, idx) => (
-                <li key={idx} className="flex items-start gap-1.5 text-[10px]">
-                  <span className={`w-1.5 h-1.5 ${accentDot} rounded-full mt-[3px] flex-shrink-0`} />
-                  <span className="text-muted-foreground line-clamp-1 leading-tight">{activity.description}</span>
+                <li key={idx} className="flex items-start gap-2 text-[11px] text-stone-700">
+                  {activity.time && (
+                    <span className="bg-stone-900 text-amber-300 font-mono text-[9px] font-bold px-1.5 py-0.5 rounded shrink-0 border border-stone-700">
+                      {activity.time}
+                    </span>
+                  )}
+                  <span className="line-clamp-1 leading-tight font-medium">{activity.description}</span>
                 </li>
               ))}
             </ul>
 
             {/* Footer */}
-            <div className="mt-auto flex items-center text-[9px] md:text-[10px] font-semibold text-primary group-hover:text-accent transition-colors duration-200">
-              Lihat Detail
-              <ChevronRight className="w-3 h-3 ml-0.5 group-hover:translate-x-0.5 transition-transform" />
+            <div className="mt-auto pt-2 flex items-center justify-between text-[10px] md:text-[11px] font-extrabold text-rose-600 group-hover:text-rose-700 transition-colors">
+              <span>Buka Rincian Lengkap</span>
+              <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         </div>
