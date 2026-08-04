@@ -42,6 +42,25 @@ const DynamicPackagePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // 0ms INSTANT LOCAL CACHE LOAD
+    try {
+      const cachedStr = localStorage.getItem("cache_pkg_" + id) || localStorage.getItem("el_massa_published_packages");
+      if (cachedStr) {
+        const cached = JSON.parse(cachedStr);
+        if (Array.isArray(cached)) {
+          const found = cached.find((p: PackageData) => p.id === id || p.id.toLowerCase() === id?.toLowerCase());
+          if (found) {
+            setPackageData(found);
+            setLoading(false);
+          }
+        } else if (cached && cached.id === id) {
+          setPackageData(cached);
+          setLoading(false);
+        }
+      }
+    } catch (e) {}
+
+    // BACKGROUND SILENT REVALIDATION
     fetch("https://system-elmassa.vercel.app/api/packages")
       .then((res) => res.json())
       .then((res) => {
@@ -54,6 +73,9 @@ const DynamicPackagePage = () => {
           );
           if (found) {
             setPackageData(found);
+            try {
+              localStorage.setItem("cache_pkg_" + id, JSON.stringify(found));
+            } catch (e) {}
           }
         }
       })

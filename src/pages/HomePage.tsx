@@ -136,6 +136,31 @@ const HomePage = () => {
   const [livePackages, setLivePackages] = useState<CatalogPackage[]>([]);
 
   useEffect(() => {
+    // 0ms INSTANT LOCAL CACHE LOAD
+    try {
+      const cachedStr = localStorage.getItem("el_massa_published_packages");
+      if (cachedStr) {
+        const cached = JSON.parse(cachedStr);
+        if (Array.isArray(cached) && cached.length > 0) {
+          const mapped: CatalogPackage[] = cached.map((pkg: any) => ({
+            id: String(pkg.id || `pkg-${Math.random()}`),
+            slug: `/paket/${pkg.id}`,
+            month: String(pkg.category || "Umrah"),
+            year: pkg.departureDate ? String(pkg.departureDate).slice(0, 4) : "2026",
+            dates: String(pkg.departuresDate || pkg.departureDate || "Jadwal Terbit System"),
+            days: String(pkg.duration || "12 Hari"),
+            badge: "🟢 LIVE SISTEM EL MASSA",
+            highlight: `${pkg.name || 'Paket Umrah'} — ${pkg.price || ''}`,
+            image: heroImage,
+            destinations: ["Makkah", "Madinah", "Thaif"],
+            isOpen: true,
+          }));
+          setLivePackages(mapped);
+        }
+      }
+    } catch (e) {}
+
+    // BACKGROUND REVALIDATION
     fetch("https://system-elmassa.vercel.app/api/packages")
       .then((res) => res.json())
       .then((res) => {
@@ -154,6 +179,9 @@ const HomePage = () => {
             isOpen: true,
           }));
           setLivePackages(mapped);
+          try {
+            localStorage.setItem("el_massa_published_packages", JSON.stringify(res.data));
+          } catch (e) {}
         }
       })
       .catch((e) => console.error("Error fetching live packages:", e));
